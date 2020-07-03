@@ -18,10 +18,16 @@ describe('fetchBreedDescription', () => {
     });
   });
 
-  it('returns null as the desc if invalid/non-existent breedName', () => {
+  it('returns "Breed not found" as the desc if invalid/non-existent breedName', () => {
     fetchBreedDescription('Dog', (err, desc) => {
+      //expect no error here 
       assert.equal(err, null);
-      //done();
+
+      const expectedDesc = "Breed not found";
+
+      //compare returned description 
+      assert.equal(expectedDesc, desc);
+      done();
     });
   });
 });
